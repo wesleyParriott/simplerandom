@@ -1,3 +1,14 @@
+# S I M P L E  R A N D O M 
+## What is?
+an easy to import randome number generator that I made for practice
+## Dependencies 
+just gcc 
+## Building 
+``` bash 
+./build.sh
+```
+## Usage 
+``` c 
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -16,7 +27,7 @@ int main(int argc, char *argv[])
     int number_between_zero_and_ten = seed % 10;
     printf("number between zero and ten: %d\n", number_between_zero_and_ten);
 
-    // how to get a number that's between two numbers 
+    // how to get a number that's between two numbers
     int start = 10;
     int end   = 20;
     int number_between_two_numbers  = SimpleRandomBetween(&seed, start, end);
@@ -34,3 +45,5 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+```
+

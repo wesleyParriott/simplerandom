@@ -32,6 +32,15 @@ long int simplerandom(long int seed)
 }
 #endif
 
+int SimpleRandomBetween(long int *seed, int start, int end)
+{
+    *seed = simplerandom(*seed);
+
+    int range = end - start;
+    
+    return (*seed % range) + start;
+}
+
 int *SimpleRandomRange(long int *seed, int start, int end, int howmany)
 {
     int *ret = (int *)malloc(howmany * sizeof(int));
@@ -41,17 +50,8 @@ int *SimpleRandomRange(long int *seed, int start, int end, int howmany)
     for(int i = 0; i < howmany; i++)
     {
         *seed = simplerandom(*seed);
-        ret[i] = (*seed % range);
+        ret[i] = (*seed % range) + start;
     }
 
     return ret;
-}
-
-int SimpleBetween(long int seed, int start, int end)
-{
-    seed = simplerandom(seed);
-
-    int range = end - start;
-    
-    return (seed % range) + start;
 }
